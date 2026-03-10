@@ -4,8 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Adopt Mission - Official Adoption Website</title>
+  <meta property="og:image" content="https://adoptmission.org/mission_hero_image.webp" />
+
+  
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
   <style>
+    .shiny-text-wrapper { display: inline-block; width: fit-content; margin-bottom: 1.5rem; color:var(--golden); display:block; font-style:italic;  }
+    .shiny-text {
+      display: inline-block;
+      /* text-transform: uppercase; */
+      background: var(--golden);
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-size: 250% 100%;
+      background-image: linear-gradient(
+        120deg,
+        var(--golden) 0%,
+        var(--golden) 30%,
+        #ffffff 48%,
+        #fffbe6 52%,
+        var(--golden) 70%,
+        var(--golden) 100%
+      );
+      animation: shineMove 5s linear var(--shine-delay, 0.1s) infinite;
+      will-change: background-position;
+    }
+    .shiny-text.paused { animation-play-state: paused; }
+    @keyframes shineMove {
+      0%   { background-position: 200% center; }
+      100% { background-position: -200% center; }
+    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --sand:   #f5ede0;
@@ -27,7 +56,7 @@
     .hero-left::after { content:''; position:absolute; right:-60px; top:0; bottom:0; width:120px; background:var(--bark); clip-path:polygon(0 0,0% 100%,100% 50%); z-index:2; }
     .hero-tag { display:inline-block; background:var(--golden); color:var(--text); font-size:0.75rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; padding:0.35rem 0.9rem; border-radius:100px; margin-bottom:1.5rem; width:fit-content; }
     .hero-name { font-family:'Fraunces',serif; font-size:clamp(4rem,9vw,7.5rem); font-weight:900; color:var(--sand); line-height:0.9; margin-bottom:1.5rem; }
-    .hero-name span { color:var(--golden); display:block; font-style:italic; }
+    /* .hero-name span { color:var(--golden); display:block; font-style:italic; } */
     .hero-desc { font-size:1.05rem; color:#d4bfab; line-height:1.7; max-width:380px; margin-bottom:2.5rem; }
     .hero-stats { display:flex; gap:2rem; margin-bottom:2.5rem; }
     .stat-num { font-family:'Fraunces',serif; font-size:2rem; font-weight:700; color:var(--golden); line-height:1; }
@@ -135,7 +164,10 @@
   <section class="hero">
     <div class="hero-left">
       <div class="hero-tag">🐾 Looking for a forever home</div>
-      <h1 class="hero-name">Meet<br><span>Mission.</span></h1>
+      <h1 class="hero-name">Meet<br> 
+      <div class="shiny-text-wrapper">
+        <span class="shiny-text" id="shinyTag">Mission</span>
+      </div></h1>
       <p class="hero-desc">60 pounds of pure snuggles, tail wags, and unconditional love — currently living out of a camper and dreaming of a couch to call his own.</p>
       <div class="hero-stats">
         <div class="stat"><div class="stat-num">60</div><div class="stat-label">Pounds</div></div>
@@ -171,7 +203,7 @@
         <div class="photo-strip reveal" style="transition-delay:0.15s">
           <img src="mission_second_photo.webp" alt="Mission the dog" style="object-position: top center"/>
           <img src="mission_fourth_photo.webp" alt="Mission the dog in prison" style="object-position: center"/>
-          <img src="mission_third_photo.webp" alt="Mission the dog post adoption" style="object-position: top"/>
+          <img src="mission_third_photo.webp" alt="Mission the dog post adoption" style="object-position: center"/>
         </div>
       </div>
     </div>
