@@ -5,172 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Adopt Mission - Official Adoption Website</title>
   <meta property="og:image" content="https://adoptmission.org/mission_hero_image.webp" />
-
-  
+  <link rel="icon" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
-  <style>
-    .shiny-text-wrapper { display: inline-block; width: fit-content; margin-bottom: 1.5rem; color:var(--golden); display:block; font-style:italic;  }
-    .shiny-text {
-      display: inline-block;
-      /* text-transform: uppercase; */
-      background: var(--golden);
-      color: transparent;
-      -webkit-background-clip: text;
-      background-clip: text;
-      background-size: 250% 100%;
-      background-image: linear-gradient(
-        120deg,
-        var(--golden) 0%,
-        var(--golden) 30%,
-        var(--white-eye) 48%,
-        var(--white-eye) 52%,
-        var(--golden) 70%,
-        var(--golden) 100%
-      );
-      animation: shineMove 5s linear var(--shine-delay, 0.1s) infinite;
-      will-change: background-position;
-    }
-    .shiny-text.paused { animation-play-state: paused; }
-    @keyframes shineMove {
-      0%   { background-position: 200% center; }
-      100% { background-position: -200% center; }
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --white-eye:   #d7dcd3;
-      --cream:  #fdf8f2;
-      --bark:   #7a4f2e;
-      --warm:   #c0733a;
-      --golden: #e8a84c;
-      --sage:   #8aab85;
-      --blush:  #e8927c;
-      --text:   #2c1a0e;
-      --muted:  #7a6355;
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
-
-    /* HERO */
-    .hero { min-height: 100svh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
-    .hero-left { background: var(--bark); display: flex; flex-direction: column; justify-content: center; padding: 5rem 4rem 5rem 6rem; position: relative; z-index: 1; }
-    .hero-left::after { content:''; position:absolute; right:-60px; top:0; bottom:0; width:120px; background:var(--bark); clip-path:polygon(0 0,0% 100%,100% 50%); z-index:2; }
-    .hero-tag { display:inline-block; background:var(--golden); color:var(--text); font-size:0.75rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; padding:0.35rem 0.9rem; border-radius:100px; margin-bottom:1.5rem; width:fit-content; }
-    .hero-name { font-family:'Fraunces',serif; font-size:clamp(4rem,9vw,7.5rem); font-weight:900; color:var(--white-eye); line-height:0.9; margin-bottom:1.5rem; }
-    /* .hero-name span { color:var(--golden); display:block; font-style:italic; } */
-    .hero-desc { font-size:1.05rem; color:#d4bfab; line-height:1.7; max-width:380px; margin-bottom:2.5rem; }
-    .hero-stats { display:flex; gap:2rem; margin-bottom:2.5rem; }
-    .stat-num { font-family:'Fraunces',serif; font-size:2rem; font-weight:700; color:var(--golden); line-height:1; }
-    .stat-label { font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:#a08878; margin-top:0.2rem; }
-    .btn-adopt { display:inline-flex; align-items:center; gap:0.6rem; background:var(--golden); color:var(--text); font-family:'DM Sans',sans-serif; font-weight:600; font-size:1rem; padding:0.9rem 2rem; border-radius:100px; text-decoration:none; border:none; cursor:pointer; transition:transform 0.2s,box-shadow 0.2s; width:fit-content; }
-    .btn-adopt:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(0,0,0,0.25); }
-    .hero-right { position:relative; background:var(--white-eye); }
-    .hero-img { width:100%; height:100%; object-fit:cover; display:block; }
-    .hero-badge { position:absolute; bottom:2.5rem; right:2.5rem; background:var(--blush); color:white; font-family:'Fraunces',serif; font-style:italic; font-size:1rem; padding:1em 1.4em; border-radius:1rem; box-shadow:0 6px 24px rgba(0,0,0,0.15); transform:rotate(3deg); line-height:1.6; }
-
-    /* SECTIONS */
-    .section { padding: 6rem 2rem; }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .section-label { font-size:0.72rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--warm); margin-bottom:0.7rem; }
-    .section-title { font-family:'Fraunces',serif; font-size:clamp(2.2rem,4vw,3.2rem); font-weight:900; line-height:1.1; color:var(--text); margin-bottom:1rem; }
-    .section-title em { font-style:italic; color:var(--warm); }
-
-    /* ABOUT */
-    .about { background: var(--cream); }
-    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
-    .about-body { font-size:1.1rem; color:var(--muted); line-height:1.8; margin-bottom:1.5rem; }
-    .trait-list { display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:1.5rem; }
-    .trait { background:var(--white-eye); border:1.5px solid #ddd2c4; border-radius:100px; padding:0.4rem 1rem; font-size:0.88rem; font-weight:500; color:var(--bark); }
-    .photo-strip { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:auto auto; gap:0.8rem; }
-    .photo-strip img { width:100%; border-radius:1rem; object-fit:cover; display:block; background:#c8a882; }
-    .photo-strip img:first-child { grid-column:span 2; height:300px; }
-    .photo-strip img:not(:first-child) { height:260px; }
-
-    /* GOALS */
-    .goals { background: var(--bark); }
-    .goals .section-label { color:var(--golden); }
-    .goals .section-title { color:var(--white-eye); }
-    .goals .section-title em { color:var(--golden); }
-    .goals-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
-    .goal-card { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:1.2rem; padding:2rem 1.8rem; transition:background 0.3s,transform 0.3s; }
-    .goal-card:hover { background:rgba(255,255,255,0.13); transform:translateY(-5px); }
-    .goal-icon { font-size:2.2rem; margin-bottom:1rem; }
-    .goal-title { font-family:'Fraunces',serif; font-size:1.25rem; font-weight:700; color:var(--golden); margin-bottom:0.6rem; }
-    .goal-text { font-size:0.95rem; color:#c4ad9a; line-height:1.65; }
-
-    /* INCLUDES */
-    .includes { background: var(--white-eye); }
-    .includes-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:3rem; }
-    .include-item { display:flex; gap:1.2rem; align-items:flex-start; padding:1.6rem; background:var(--cream); border-radius:1.2rem; border:1.5px solid #e0d4c4; transition:box-shadow 0.2s; }
-    .include-item:hover { box-shadow:0 8px 30px rgba(0,0,0,0.08); }
-    .include-icon { font-size:1.8rem; flex-shrink:0; margin-top:0.1rem; }
-    .include-title { font-family:'Fraunces',serif; font-size:1.05rem; font-weight:700; color:var(--bark); margin-bottom:0.3rem; }
-    .include-text { font-size:0.9rem; color:var(--muted); line-height:1.6; }
-    .value-badge { background:var(--golden); color:var(--text); font-size:0.7rem; font-weight:700; padding:0.2rem 0.55rem; border-radius:100px; margin-left:0.4rem; vertical-align:middle; white-space:nowrap; }
-
-    /* TRANSPORT */
-    .transport { background:var(--sage); padding:3rem 2rem; }
-    .transport .container { display:flex; align-items:center; gap:2rem; flex-wrap:wrap; }
-    .transport-icon { font-size:2.5rem; flex-shrink:0; }
-    .transport-text { font-size:1rem; color:#f5ede0; line-height:1.65; flex:1; min-width:260px; }
-    .transport-text strong { font-size:1.15rem; display:block; margin-bottom:0.25rem; color:white; }
-
-    /* CTA */
-    .cta { background:var(--golden); text-align:center; padding:7rem 2rem; position:relative; overflow:hidden; }
-    .cta::before { content:'🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾'; position:absolute; top:1.5rem; left:0; right:0; font-size:1.4rem; letter-spacing:1rem; opacity:0.2; white-space:nowrap; overflow:hidden; }
-    .cta::after  { content:'🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾'; position:absolute; bottom:1.5rem; left:0; right:0; font-size:1.4rem; letter-spacing:1rem; opacity:0.2; white-space:nowrap; overflow:hidden; }
-    .cta-title { font-family:'Fraunces',serif; font-size:clamp(2.5rem,5vw,4rem); font-weight:900; color:var(--text); margin-bottom:1rem; }
-    .cta-title em { font-style:italic; color:var(--bark); }
-    .cta-body { font-size:1.1rem; color:#5a3b1e; max-width:560px; margin:0 auto 2.5rem; line-height:1.7; }
-    .cta-buttons { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
-    .btn-primary { background:var(--bark); color:var(--white-eye); font-family:'DM Sans',sans-serif; font-weight:600; font-size:1rem; padding:0.9rem 2rem; border-radius:100px; text-decoration:none; transition:transform 0.2s,box-shadow 0.2s; }
-    .btn-primary:hover { transform:translateY(-3px); box-shadow:0 10px 25px rgba(0,0,0,0.2); }
-    .btn-secondary { background:transparent; color:var(--bark); font-family:'DM Sans',sans-serif; font-weight:600; font-size:1rem; padding:0.9rem 2rem; border-radius:100px; text-decoration:none; border:2px solid var(--bark); transition:background 0.2s,color 0.2s; }
-    .btn-secondary:hover { background:var(--bark); color:var(--white-eye); }
-
-    /* FOOTER */
-    footer { background:var(--text); padding:2.5rem 2rem; text-align:center; }
-    .footer-name { font-family:'Fraunces',serif; font-size:1.6rem; font-weight:900; color:var(--golden); margin-bottom:0.3rem; }
-    .footer-sub { font-size:0.85rem; color:#7a6355; }
-
-    /* REVEAL ANIMATION */
-    .reveal { opacity:0; transform:translateY(28px); transition:opacity 0.65s ease, transform 0.65s ease; }
-    .reveal.visible { opacity:1; transform:none; }
-
-    /* RESPONSIVE */
-    @media (max-width: 860px) {
-      .hero { grid-template-columns:1fr; min-height:auto; }
-      .hero-left { padding:4rem 2rem 3rem; order:2; }
-      .hero-left::after { display:none; }
-      .hero-right { order:1; height:55vw; min-height:280px; max-height:420px; }
-      .about-grid, .includes-grid { grid-template-columns:1fr; }
-      .goals-grid { grid-template-columns:1fr; }
-      .section { padding:4rem 1.5rem; }
-      .hero-stats { gap:1.5rem; }
-      .hero-badge {
-        font-size:0.8rem;
-        right:unset;
-        left:5px;
-      }
-    }
-    @media (max-width: 500px) {
-      .hero-left { padding:3rem 1.5rem 2.5rem; }
-      .photo-strip img:first-child { height:200px; }
-    }
-  </style>
+  <style>  .easter-bone {
+    position: absolute;
+    cursor: grab;
+    user-select: none;
+    pointer-events: all;
+    will-change: transform;
+    filter: drop-shadow(1px 3px 4px rgba(0,0,0,0.2));
+    top:0px;
+    background-image: url('bone.svg');
+    background-size:contain;
+    background-repeat: no-repeat;
+    padding:10px;
+  }
+  .easter-bone:active { cursor: grabbing; }.hero-name,.stat-num{font-family:Fraunces,serif}.hero,.hero-left,.hero-right{position:relative}.hero-tag,.section-label,.stat-label{text-transform:uppercase}.about-grid,.hero,.photo-strip{grid-template-columns:1fr 1fr}.cta,footer{text-align:center}.shiny-text-wrapper{width:fit-content;margin-bottom:1.5rem;color:var(--golden);display:block;font-style:italic}.shiny-text{display:inline-block;background:var(--golden);color:transparent;-webkit-background-clip:text;background-clip:text;background-size:250% 100%;background-image:linear-gradient(120deg,var(--golden) 0,var(--golden) 30%,var(--white-eye) 48%,var(--white-eye) 52%,var(--golden) 70%,var(--golden) 100%);animation:shineMove 5s linear var(--shine-delay,.1s) infinite;will-change:background-position}.hero-tag,body{color:var(--text)}.shiny-text.paused{animation-play-state:paused}@keyframes shineMove{0%{background-position:200% center}100%{background-position:-200% center}}*,::after,::before{box-sizing:border-box;margin:0;padding:0}:root{--white-eye:#d7dcd3;--cream:#fdf8f2;--bark:#7a4f2e;--warm:#c0733a;--golden:#e8a84c;--sage:#8aab85;--blush:#e8927c;--text:#2c1a0e;--muted:#7a6355}html{scroll-behavior:smooth}body{font-family:'DM Sans',sans-serif;background:var(--cream);overflow-x:hidden}.hero{min-height:100svh;display:grid;overflow:hidden}.hero-left{background:var(--bark);display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem 5rem 6rem;z-index:1}.btn-adopt,.hero-tag{background:var(--golden);border-radius:100px;width:fit-content}.hero-left::after{content:'';position:absolute;right:-60px;top:0;bottom:0;width:120px;background:var(--bark);clip-path:polygon(0 0,0% 100%,100% 50%);z-index:-1}.hero-tag{display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:.15em;padding:.35rem .9rem;margin-bottom:1.5rem}.hero-name{font-size:clamp(4rem,9vw,7.5rem);font-weight:900;color:var(--white-eye);line-height:.9;margin-bottom:0}.hero-desc{font-size:1.05rem;color:#d4bfab;line-height:1.7;max-width:380px;margin-bottom:2.5rem}.hero-stats{display:flex;gap:2rem;margin-bottom:2.5rem}.stat-num{font-size:2rem;font-weight:700;color:var(--golden);line-height:1}.stat-label{font-size:.7rem;letter-spacing:.1em;color:#a08878;margin-top:.2rem}.btn-adopt{display:inline-flex;align-items:center;gap:.6rem;color:var(--text);font-family:'DM Sans',sans-serif;font-weight:600;font-size:1rem;padding:.9rem 2rem;text-decoration:none;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s}.cta-title,.goal-title,.hero-badge,.include-title,.section-title{font-family:Fraunces,serif}.btn-adopt:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.25)}.hero-right{background:var(--white-eye);height:0;min-height:100%}.hero-img{width:calc(100% + 50px);height:calc(100% + 50px);object-fit:cover;display:block;animation:1s ease-out forwards revealMission}.hero-badge{position:absolute;bottom:0;right:0;margin:1em;background:var(--blush);color:#fff;font-style:italic;font-size:1.5rem;padding:1em 1.4em;border-radius:1rem;box-shadow:0 6px 24px rgba(0,0,0,.15);transform:rotate(3deg);line-height:1.6}.cta,.transport{position:relative}.section{padding:6rem 2rem}.container{max-width:1100px;margin:0 auto}.section-label{font-size:.72rem;font-weight:600;letter-spacing:.18em;color:var(--warm);margin-bottom:.7rem}.section-title{font-size:clamp(2.2rem,4vw,3.2rem);font-weight:900;line-height:1.1;color:var(--text);margin-bottom:1rem}.section-title em{font-style:italic;color:var(--warm)}.about{background:var(--cream)}.about-grid{display:grid;gap:4rem;align-items:center}.about-body{font-size:1.1rem;color:var(--muted);line-height:1.8;margin-bottom:1.5rem}.trait-list{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}.goals-grid,.includes-grid{display:grid;margin-top:3rem}.trait{background:var(--white-eye);border:1.5px solid #ddd2c4;border-radius:100px;padding:.4rem 1rem;font-size:.88rem;font-weight:500;color:var(--bark)}.goal-title,.goals .section-label,.goals .section-title em{color:var(--golden)}.photo-strip{display:grid;grid-template-rows:auto auto;gap:.8rem}.photo-strip img{width:100%;border-radius:1rem;object-fit:cover;display:block;background:#c8a882}.photo-strip img:first-child{grid-column:span 2;height:300px}.photo-strip img:not(:first-child){height:260px}.goals{background:var(--bark)}.goals .section-title{color:var(--white-eye)}.goals-grid{grid-template-columns:repeat(3,1fr);gap:1.5rem}.goal-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:1.2rem;padding:2rem 1.8rem;transition:background .3s,transform .3s}.goal-card:hover{background:rgba(255,255,255,.13);transform:translateY(-5px)}.goal-icon{font-size:2.2rem;margin-bottom:1rem}.goal-title{font-size:1.25rem;font-weight:700;margin-bottom:.6rem}.goal-text{font-size:.95rem;color:#c4ad9a;line-height:1.65}.includes{background:var(--white-eye)}.includes-grid{grid-template-columns:1fr 1fr;gap:2rem}.include-item{display:flex;gap:1.2rem;align-items:flex-start;padding:1.6rem;background:var(--cream);border-radius:1.2rem;border:1.5px solid #e0d4c4;transition:box-shadow .2s}.include-item:hover{box-shadow:0 8px 30px rgba(0,0,0,.08)}.include-icon{font-size:1.8rem;flex-shrink:0;margin-top:.1rem}.include-title{font-size:1.05rem;font-weight:700;color:var(--bark);margin-bottom:.3rem}.include-text{font-size:.9rem;color:var(--muted);line-height:1.6}.value-badge{background:var(--golden);color:var(--text);font-size:.7rem;font-weight:700;padding:.2rem .55rem;border-radius:100px;margin-left:.4rem;vertical-align:middle;white-space:nowrap}.transport{background-image:url(trailer.jpg);background-position:center;background-size:100% auto;isolation:isolate}.transport::before{content:"";display:block;background-color:#8aab85e8;width:100%;height:100%;position:absolute;z-index:-1}.cta::after,.cta::before{content:'🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾';position:absolute;left:0;right:0;font-size:1.4rem;letter-spacing:1rem;opacity:.2;white-space:nowrap;overflow:hidden}.transport .container{backdrop-filter:blur(1.5px);display:flex;align-items:center;gap:2rem;flex-wrap:wrap;padding:2rem 3rem;min-height:450px}.transport .container *{--shadow:#8aab85;text-shadow:var(--shadow) 0 2px 0,var(--shadow) 1px 2px 0,var(--shadow) -1px 2px 0,var(--shadow)}.transport-icon{font-size:2.5rem;flex-shrink:0}.transport-text{font-size:1.15rem;color:#f5ede0;line-height:1.65;flex:1;min-width:260px}.transport-text strong{font-size:1.15rem;display:block;margin-bottom:.25rem;color:#fff}.cta{background:var(--golden);padding:7rem 2rem;overflow:hidden}.cta::before{top:1.5rem}.cta::after{bottom:1.5rem}.cta-title{font-size:clamp(2.5rem,5vw,4rem);font-weight:900;color:var(--text);margin-bottom:1rem}.cta-title em{font-style:italic;color:var(--bark)}.cta-body{font-size:1.1rem;color:#5a3b1e;max-width:560px;margin:0 auto 2.5rem;line-height:1.7}.btn-primary,.btn-secondary{font-family:'DM Sans',sans-serif;font-weight:600;font-size:1rem;padding:.9rem 2rem;border-radius:100px;text-decoration:none}.btn-primary,.btn-secondary:hover{background:var(--bark);color:var(--white-eye)}.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}.btn-primary{transition:transform .2s,box-shadow .2s}.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,.2)}.btn-secondary{background:0 0;color:var(--bark);border:2px solid var(--bark);transition:background .2s,color .2s}footer{background:var(--text);padding:2.5rem 2rem}.footer-name{font-family:Fraunces,serif;font-size:1.6rem;font-weight:900;color:var(--golden);margin-bottom:.3rem}.footer-sub{font-size:.85rem;color:#7a6355}.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s,transform .65s}.reveal.visible{opacity:1;transform:none}@media (max-width:860px){.about-grid,.goals-grid,.hero,.includes-grid{grid-template-columns:1fr}.hero{min-height:auto}.hero-left{padding:4rem 2rem 3rem;order:2}.hero-left::after{display:none}.hero-right{order:1;height:55vw;min-height:280px;max-height:420px;z-index:2}.section{padding:4rem 1.5rem}.hero-stats{gap:1.5rem}.hero-badge{font-size:1rem;bottom:-111px}.hero-img{animation:none;width:100%;height:100%}}@media (max-width:500px){.hero-left{padding:3rem 1.5rem 2.5rem}.photo-strip img:first-child{height:200px}}@keyframes revealMission{0%{translate:-50px 0;filter:grayscale(1)}100%{translate:0 0;filter:grayscale(0)}}</style>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded",(()=>{gsap.registerPlugin(Draggable);const t=.3,o=.85,e=document.querySelector("#bones"),a=e&&e.querySelector(".photo-strip");if(!e||!a||"undefined"==typeof Draggable)return;const n=92,s=36,i=document.createElement("div");i.className="easter-bone",i.style.cssText=`width:${n}px;height:${s}px;`,e.appendChild(i);let r={left:0,top:0,right:0,bottom:0};function h(){const t=e.getBoundingClientRect(),o=a.getBoundingClientRect();r={left:o.left-t.left,top:o.top-t.top,right:o.right-t.left,bottom:o.bottom-t.top}}h(),window.addEventListener("resize",(()=>{h(),y.sleeping=!1}),{passive:!0});const y={x:r.left+(r.right-r.left)/2-n/2,y:r.top-s-2,vx:.6*(Math.random()-.5),vy:0,rot:18*(Math.random()-.5),vrot:1*(Math.random()-.5),dragging:!1,sleeping:!1};gsap.set(i,{x:y.x,y:y.y,rotation:y.rot,position:"absolute"});let g=y.x,x=y.y,v=0,l=0,p=0,c=0,d=0,b=0,f=0;Draggable.create(i,{type:"x,y",liveSnap:{points(t){const o=t.x-g,e=t.y-x;let{x:a,y:i}=t;const h=a+n>r.left&&a<r.right,y=i+s>r.top&&i<r.bottom;return h&&y&&(Math.abs(o)>=Math.abs(e)?a=o>=0?r.left-n:r.right:i=e>=0?r.top-s:r.bottom),g=a,x=i,{x:a,y:i}}},onDragStart(t){y.dragging=!0,y.sleeping=!1,g=this.x,x=this.y,p=this.x,c=this.y,d=Date.now(),b=0,f=0,gsap.set(i,{zIndex:99});const o=t.touches?t.touches[0]:t,e=i.getBoundingClientRect(),a=-y.rot*(Math.PI/180),r=o.clientX-(e.left+n/2),h=o.clientY-(e.top+s/2);v=r*Math.cos(a)-h*Math.sin(a),l=v/(.5*n)*28},onDrag(){y.x=this.x,y.y=this.y;const t=Date.now(),o=Math.max(t-d,8);b=(this.x-p)/o*16,f=(this.y-c)/o*16,p=this.x,c=this.y,d=t,y.rot+=.1*(l-y.rot),gsap.set(i,{rotation:y.rot})},onDragEnd(){y.dragging=!1,y.vx=b,y.vy=f,y.vrot=.4*b+2*(Math.random()-.5),y.x=this.x,y.y=this.y,gsap.set(i,{zIndex:20})}}),function a(){if(!y.dragging&&!y.sleeping){y.vy+=.42,y.vx*=.975,y.vy*=.975,y.vrot*=.9;const a=e.offsetHeight,h=e.offsetWidth,g=y.x;y.x+=y.vx,function(o){y.y+s<=r.top||y.y>=r.bottom||y.x+n<=r.left||y.x>=r.right||(o+n<=r.left?(y.x=r.left-n,y.vx=-Math.abs(y.vx)*t,y.vrot*=.8):o>=r.right&&(y.x=r.right,y.vx=Math.abs(y.vx)*t,y.vrot*=.8))}(g);const x=y.y;y.y+=y.vy,y.rot+=y.vrot,function(e){y.x+n<=r.left||y.x>=r.right||y.y+s<=r.top||y.y>=r.bottom||(e+s<=r.top?(y.y=r.top-s,y.vy=-Math.abs(y.vy)*t,y.vx*=o,y.vrot*=.72,Math.abs(y.vy)<.35&&(y.vy=0)):e>=r.bottom&&(y.y=r.bottom,y.vy=Math.abs(y.vy)*t))}(x),y.x<0&&(y.x=0,y.vx=Math.abs(y.vx)*t),y.x+n>h&&(y.x=h-n,y.vx=-Math.abs(y.vx)*t),y.y<0&&(y.y=0,y.vy=Math.abs(y.vy)*t),y.y+s>a&&(y.y=a-s,y.vy=-Math.abs(y.vy)*t,y.vx*=o,y.vrot*=.7,Math.abs(y.vy)<.35&&(y.vy=0));Math.abs(y.vx)+Math.abs(y.vy)+Math.abs(y.vrot)<.08&&(y.sleeping=!0,y.vx=y.vy=y.vrot=0),gsap.set(i,{x:y.x,y:y.y,rotation:y.rot})}requestAnimationFrame(a)}()}));</script>
+  <!-- Looking for something? -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/Draggable.min.js"></script>
 </head>
 <body>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
-      <div class="hero-tag">🐾 Looking for a forever home</div>
-      <h1 class="hero-name">Meet<br> 
+      <h1 class="hero-name ">Meet<br> 
       <div class="shiny-text-wrapper">
         <span class="shiny-text" id="shinyTag">Mission</span>
       </div></h1>
-      <p class="hero-desc">60 pounds of pure snuggles, tail wags, and unconditional love — currently living out of a camper and dreaming of a couch to call his own.</p>
+      <p class="hero-desc">This 62 pounds mass of unconditional love is in need of a new home!</p>
       <div class="hero-stats">
-        <div class="stat"><div class="stat-num">60</div><div class="stat-label">Pounds</div></div>
         <div class="stat"><div class="stat-num">$0</div><div class="stat-label">Adoption Fee</div></div>
         <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Good Boy</div></div>
       </div>
@@ -182,131 +47,175 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="section about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="reveal">
-          <h2 class="section-title">Mission's Story</h2>
-          <p class="about-body">Mission was discovered during our tour of the Spanish Missions of San Antonio. He was found in poor health, crumpled in a ditch unmoving. We got him to animal control for treatment, and he has since made a full recovery. However, due to limited space at the shelter, we were forced to adopt him to avoid capacity euthansia.</p>
-          <p class="about-body">Mission is a friendly pup, estimated to be 2-3 years old by the vet. While he appears to be house-trained, he doesn't seem to know any words. He loves to cuddle but has a hard time figuring out how to lay down without face planting. He is very soft and submissive around our own two dogs and cat. He is bit reactive to cars and tall people, but we are currently working on that.</p>
-          <p class="about-body">Right now he's sharing a camper with us, and while he loves his crew, he's ready for a space to truly call his own.</p>
-          <div class="trait-list">
-            <span class="trait">🤝 People-friendly</span>
-            <span class="trait">🐕 Dog-friendly</span>
-            <span class="trait">🐱 Cat-friendly</span>
-            <span class="trait">🛖 Crate Trained</span>
-            <span class="trait">🧡 Super affectionate</span>
-            <span class="trait">🎓 Ready to learn</span>
-          </div>
-        </div>
-        <div class="photo-strip reveal" style="transition-delay:0.15s">
-          <img src="mission_second_photo.webp" alt="Mission the dog" style="object-position: top center"/>
-          <img src="mission_fourth_photo.webp" alt="Mission the dog in prison" style="object-position: center"/>
-          <img src="mission_third_photo.webp" alt="Mission the dog post adoption" style="object-position: center"/>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GOALS -->
-  <section class="section goals">
-    <div class="container">
+  <section class="section about" id="bones" style="position: relative; overflow: hidden;">
+  <div class="container">
+    <div class="about-grid">
       <div class="reveal">
-        <p class="section-label">His Dreams</p>
-        <h2 class="section-title">Mission has <em>big goals.</em></h2>
+        <h2 class="section-title">Mission's Story</h2>
+        <p class="about-body">Mission was discovered during our tour of the Spanish Missions of San Antonio. He was found in poor health, crumpled in a ditch unmoving. We got him to animal control for treatment, and he has since made a full recovery. However, due to limited space at the shelter, we were forced to adopt him to avoid capacity euthansia.</p>
+        <p class="about-body">Mission is a friendly pup, estimated to be 2-3 years old by the vet. He appears to be house-trained (no accidents yets) and can walk on a leash without pulling. He loves to cuddle and to play tug. He is very soft and submissive around our own two dogs and cat. He is bit reactive to cars and tall people, but we are currently working on that.</p>
+        <p class="about-body">Right now he's sharing a camper with us, and while he loves his crew, he's ready for a space to truly call his own.</p>
       </div>
-      <div class="goals-grid">
-        <div class="goal-card reveal" style="transition-delay:0.1s">
-          <div class="goal-icon">🏠</div>
-          <div class="goal-title">A Place to Call Home</div>
-          <p class="goal-text">Mission dreams of his own space — a warm bed, a yard to explore, and a family who'll be his forever people.</p>
-        </div>
-        <div class="goal-card reveal" style="transition-delay:0.2s">
-          <div class="goal-icon">📚</div>
-          <div class="goal-title">Learning All the Words</div>
-          <p class="goal-text">Heel. Sit. Lay down. Roll over. Mission is eager to learn and ready to show off what a quick study he is.</p>
-        </div>
-        <div class="goal-card reveal" style="transition-delay:0.3s">
-          <div class="goal-icon">🛋️</div>
-          <div class="goal-title">Couch Privileges</div>
-          <p class="goal-text">After weeks in a camper, this pup has fully earned the right to claim a prime spot on a cozy sofa.</p>
-        </div>
+      <div class="photo-strip reveal" style="transition-delay:0.15s">
+        <img src="mission_fourth_photo.webp" alt="Mission the dog in prison" style="object-position: center">
+        <img src="mission_third_photo.webp" alt="Mission the dog post adoption" style="object-position: center">
+        <img src="mission_tug.webp" alt="Mission the dog" style="object-position: top left">
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- INCLUDES -->
   <section class="section includes">
     <div class="container">
       <div class="reveal">
-        <p class="section-label">What You Get</p>
         <h2 class="section-title">Adoption <em>includes everything.</em></h2>
       </div>
       <div class="includes-grid">
         <div class="include-item reveal" style="transition-delay:0.1s">
           <div class="include-icon">💸</div>
           <div>
-            <div class="include-title">Completely Free</div>
-            <p class="include-text">No adoption fee whatsoever. Mission just needs a loving home — that's payment enough.</p>
+            <div class="include-title">Free</div>
+            <p class="include-text">0% APR. No Money Down... or ever. This priceless pup comes with no price tag.</p>
           </div>
         </div>
         <div class="include-item reveal" style="transition-delay:0.15s">
           <div class="include-icon">🏠</div>
           <div>
-            <div class="include-title">42" Crate with Cover <span class="value-badge">$150 value</span></div>
-            <p class="include-text">Mission comes with his beloved 42" crate and cover — a safe, cozy space he already knows and loves. Yours free.</p>
+            <div class="include-title">42" Crate with Cover ($150 Value)</div>
+            <p class="include-text" style="text-wrap-style: pretty;">Mission comes with a 42" metal crate with cover. He really loves it!</p>
           </div>
         </div>
         <div class="include-item reveal" style="transition-delay:0.2s">
           <div class="include-icon">🩺</div>
           <div>
-            <div class="include-title">Wellness Check — All Clear!</div>
-            <p class="include-text">Mission has had his full wellness exam and is in great health. Up to date on all vaccinations, flea &amp; tick prevention, and heartworm testing.</p>
+            <div class="include-title">Medical Records</div>
+            <p class="include-text">Mission has had his full wellness exam. We'll provide proof of all vaccinations, flea &amp; tick prevention, and heartworm negative.</p>
           </div>
         </div>
         <div class="include-item reveal" style="transition-delay:0.25s">
           <div class="include-icon">✂️</div>
           <div>
             <div class="include-title">Already Neutered</div>
-            <p class="include-text">One less thing to worry about — Mission has already been neutered and is ready to go.</p>
+            <p class="include-text">No puppies in Mission's future!</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TRANSPORT -->
   <section class="transport">
     <div class="container">
-      <div class="transport-icon">🚐</div>
       <div class="transport-text">
-        <strong>We'll work something out — wherever you are.</strong>
+        <h2 class="section-title" style="color:#f5ede0">We are mobile!</h2>
         Currently traveling through the Southwest, heading back to Pennsylvania. No matter where you're located, reach out — we may be able to arrange transportation for the right family!
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="section cta" id="contact">
     <div class="container">
       <h2 class="cta-title reveal">Ready to give Mission<br><em>his forever home?</em></h2>
-      <p class="cta-body reveal" style="transition-delay:0.1s">Reach out to us below to learn more about Mission and start the adoption process.  🐾</p>
-      <div class="cta-buttons reveal" style="transition-delay:0.2s">
-        <a href="mailto:bailyhohman0114@gmail.com" class="btn-primary">📬 Send a Message</a>
-        <a href="sms:5153684773" class="btn-secondary">📱 Text Us</a>
-      </div>
+      <p class="cta-body reveal" style="transition-delay:0.1s">Reach out to us below. 🐾</p>
+      <form action="https://submit-form.com/ocjFHjEg6" style="
+        max-width: 520px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+      ">
+        <label for="name" style="
+          font-size: 0.75rem;
+          font-weight: 600;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #5a3b1e;
+          text-align: left;
+          margin-bottom: -0.4rem;
+        ">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required style="
+          font-family: 'DM Sans', sans-serif;
+          font-size: 1rem;
+          padding: 0.85rem 1.2rem;
+          border-radius: 0.75rem;
+          border: 2px solid rgba(122,79,46,0.2);
+          background: rgba(255,255,255,0.7);
+          color: #2c1a0e;
+          outline: none;
+          transition: border-color 0.2s, box-shadow 0.2s;
+        " onfocus="this.style.borderColor='#7a4f2e'; this.style.boxShadow='0 0 0 3px rgba(122,79,46,0.15)'"
+           onblur="this.style.borderColor='rgba(122,79,46,0.2)'; this.style.boxShadow='none'"/>
+
+        <label for="email" style="
+          font-size: 0.75rem;
+          font-weight: 600;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #5a3b1e;
+          text-align: left;
+          margin-bottom: -0.4rem;
+        ">Email</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required style="
+          font-family: 'DM Sans', sans-serif;
+          font-size: 1rem;
+          padding: 0.85rem 1.2rem;
+          border-radius: 0.75rem;
+          border: 2px solid rgba(122,79,46,0.2);
+          background: rgba(255,255,255,0.7);
+          color: #2c1a0e;
+          outline: none;
+          transition: border-color 0.2s, box-shadow 0.2s;
+        " onfocus="this.style.borderColor='#7a4f2e'; this.style.boxShadow='0 0 0 3px rgba(122,79,46,0.15)'"
+           onblur="this.style.borderColor='rgba(122,79,46,0.2)'; this.style.boxShadow='none'"/>
+
+        <label for="message" style="
+          font-size: 0.75rem;
+          font-weight: 600;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #5a3b1e;
+          text-align: left;
+          margin-bottom: -0.4rem;
+        ">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us a little about yourself and your home..." required rows="5" style="
+          font-family: 'DM Sans', sans-serif;
+          font-size: 1rem;
+          padding: 0.85rem 1.2rem;
+          border-radius: 0.75rem;
+          border: 2px solid rgba(122,79,46,0.2);
+          background: rgba(255,255,255,0.7);
+          color: #2c1a0e;
+          outline: none;
+          resize: vertical;
+          transition: border-color 0.2s, box-shadow 0.2s;
+        " onfocus="this.style.borderColor='#7a4f2e'; this.style.boxShadow='0 0 0 3px rgba(122,79,46,0.15)'"
+           onblur="this.style.borderColor='rgba(122,79,46,0.2)'; this.style.boxShadow='none'"></textarea>
+
+        <button type="submit" style="
+          font-family: 'DM Sans', sans-serif;
+          font-size: 1rem;
+          font-weight: 600;
+          padding: 1rem 2rem;
+          border-radius: 100px;
+          border: none;
+          background: #7a4f2e;
+          color: #f5ede0;
+          cursor: pointer;
+          margin-top: 0.4rem;
+          transition: transform 0.2s, box-shadow 0.2s;
+        " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'"
+           onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
+          🐾 Send Message
+        </button>
+      </form>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
+  <!-- <footer>
     <div class="footer-name">Mission 🐾</div>
     <div class="footer-sub">Looking for his forever home · Made with love by a friend</div>
-  </footer>
+  </footer> -->
 
   <script>
-    // Reveal elements — immediate check on load + observer for scroll
     const reveals = document.querySelectorAll('.reveal');
     function checkReveal() {
       reveals.forEach(el => {
@@ -318,8 +227,7 @@
     checkReveal(); // run immediately
     window.addEventListener('scroll', checkReveal, { passive: true });
     window.addEventListener('resize', checkReveal, { passive: true });
-    // Hard fallback — reveal everything after 1s
-    setTimeout(() => reveals.forEach(el => el.classList.add('visible')), 1000);
+    // setTimeout(() => reveals.forEach(el => el.classList.add('visible')), 1000);
   </script>
 </body>
 </html>
