@@ -170,7 +170,7 @@
       .section { padding:4rem 1.5rem; }
       .hero-stats { gap:1.5rem; }
       .hero-badge {
-        font-size:1rem;
+        font-size:0.75rem;
         bottom:-111px;
       }
         .hero-img{
