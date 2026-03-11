@@ -63,7 +63,7 @@
     .hero-desc { font-size:1.05rem; color:#d4bfab; line-height:1.7; max-width:380px; margin-bottom:2.5rem; }
     .hero-stats { display:flex; gap:2rem; margin-bottom:2.5rem; }
     .stat-num { font-family:'Fraunces',serif; font-size:2rem; font-weight:700; color:var(--golden); line-height:1; }
-    .stat-label { font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:#a08878; margin-top:0.2rem; }
+    .stat-label { font-size:0.9rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--white-eye); margin-top:0.2rem; }
     .btn-adopt { display:inline-flex; align-items:center; gap:0.6rem; background:var(--golden); color:var(--text); font-family:'DM Sans',sans-serif; font-weight:600; font-size:1rem; padding:0.9rem 2rem; border-radius:100px; text-decoration:none; border:none; cursor:pointer; transition:transform 0.2s,box-shadow 0.2s; width:fit-content; }
     .btn-adopt:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(0,0,0,0.25); }
     .hero-right { position:relative; background:var(--white-eye); height:0px;min-height: 100%; }
