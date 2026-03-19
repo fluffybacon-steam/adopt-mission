@@ -123,13 +123,13 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
     <script>
       gsap.registerPlugin(ScrollTrigger);
-
+      const title = document.querySelector('.gallery .section-title');
       gsap.to("#gallery-track", {
         x: () => -(document.getElementById("gallery-track").scrollWidth - window.innerWidth/2),
         ease: "none",
         scrollTrigger: {
-          trigger: ".gallery",
-          start: "top top",
+          trigger: "#gallery-track",
+          start: `top top+=${title.offsetHeight}px`,
           end: () => "+=" + (document.getElementById("gallery-track").scrollWidth - window.innerWidth/2),
           pin: true,
           scrub: 1,
