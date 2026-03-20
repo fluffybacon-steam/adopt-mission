@@ -1,8 +1,15 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
-  
+  gsap.registerPlugin(ScrollSmoother) 
+  gsap.registerPlugin(Draggable);
+
+  ScrollSmoother.create({
+    smooth: 1,
+    effects: true
+  });
+
   if(window.innerWidth > 768){
-    gsap.registerPlugin(Draggable);
     const GRAVITY    = 0.42;
     const BOUNCE     = 0.30;
     const FRICTION   = 0.975;
@@ -205,37 +212,36 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     tick();
-  }
 
-  const windowHeight = window.clientHeight;
-  const galleryWrapper = document.querySelector(".gallery-wrapper");
-  const offset = (window.innerWidth > 768) ? 'top' : 'top+=100';
-
-  if (galleryWrapper){
-    const track = document.getElementById("gallery-track");
-    let trackWidth;
-
-    function refresh() {
-      trackWidth = track.scrollWidth;
+    const galleryWrapper = document.querySelector(".gallery-wrapper");
+    const offset = (window.innerWidth > 768) ? 'top' : 'top+=100';
+  
+    if (galleryWrapper){
+      const track = document.getElementById("gallery-track");
+      let trackWidth;
+  
+      function refresh() {
+        trackWidth = track.scrollWidth;
+      }
+      refresh();
+  
+      gsap.to(track, {
+        scrollTrigger: {
+          scrub: 2,
+          anticipatePin: 1,
+          trigger: galleryWrapper,
+          pin: galleryWrapper,
+          markers:true,
+          start: "top top",
+          end: () => `+=${trackWidth}`,
+          invalidateOnRefresh: true,
+        },
+        x: () => -(trackWidth - window.innerWidth),
+        ease: "none"
+      });
+  
+      ScrollTrigger.addEventListener("refreshInit", refresh);
     }
-    refresh();
+  } 
 
-    gsap.to(track, {
-      scrollTrigger: {
-        scrub: 2,
-        anticipatePin: 1,
-        trigger: galleryWrapper,
-        pin: galleryWrapper,
-        start: "center center",
-        end: () => `+=${trackWidth}`,
-        invalidateOnRefresh: true,
-      },
-      x: () => -(trackWidth - window.innerWidth),
-      ease: "none"
-    });
-
-    ScrollTrigger.addEventListener("refreshInit", refresh);
-  }
-  // if (!isMobile) {
-  // }
 });
