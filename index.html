@@ -27,7 +27,7 @@ const speed=Math.abs(bone.vx)+Math.abs(bone.vy)+Math.abs(bone.vrot);if(speed<RES
 gsap.set(el,{x:bone.x,y:bone.y,rotation:bone.rot})}
 requestAnimationFrame(tick)}
 tick();const galleryWrapper=document.querySelector(".gallery-wrapper");const offset=(window.innerWidth>768)?'top':'top+=100';if(galleryWrapper){const track=document.getElementById("gallery-track");let trackWidth;function refresh(){trackWidth=track.scrollWidth}
-refresh();gsap.to(track,{scrollTrigger:{scrub:2,anticipatePin:1,trigger:galleryWrapper,pin:galleryWrapper,markers:!0,start:"top top",end:()=>`+=${trackWidth}`,invalidateOnRefresh:!0,},x:()=>-(trackWidth-window.innerWidth),ease:"none"});ScrollTrigger.addEventListener("refreshInit",refresh)}}})</script>
+refresh();gsap.to(track,{scrollTrigger:{scrub:2,anticipatePin:1,trigger:galleryWrapper,pin:galleryWrapper,markers:!1,start:"top top",end:()=>`+=${trackWidth}`,invalidateOnRefresh:!0,},x:()=>-(trackWidth-window.innerWidth),ease:"none"});ScrollTrigger.addEventListener("refreshInit",refresh)}}})</script>
   <!-- Looking for something? -->
 </head>
 <body>
@@ -118,15 +118,15 @@ refresh();gsap.to(track,{scrollTrigger:{scrub:2,anticipatePin:1,trigger:galleryW
       <div id="gallery-track" >
          <div class="gal-item"><img src="mission_square.webp" alt="Mission"></div>
          <div class="gal-item"><img src="mission_tall.webp" alt="Mission" style="object-position: bottom left;"></div>
-         <div class="gal-item"><img src="mission_walk.webp" alt="Mission"></div>
-         <div class="gal-item"><img src="mission_ready_to_play.webp" alt="Mission" style="object-position: top;"></div>
-         <div class="gal-item"><img src="mission_relaxing.webp" alt="Mission"></div>
+         <div class="gal-item"><img loading="lazy" src="mission_walk.webp" alt="Mission"></div>
+         <div class="gal-item"><img loading="lazy" src="mission_ready_to_play.webp" alt="Mission" style="object-position: top;"></div>
+         <div class="gal-item"><img loading="lazy" src="mission_relaxing.webp" alt="Mission"></div>
          <div class="gal-item"><video muted="" autoplay="" loop="" width="100%"><source src="mission_attempting_to_climb.webm" type="video/webm"></video></div>
-         <div class="gal-item"><img src="mission_with_dogs.webp" alt="Mission" style="object-position: left;"></div>
-         <div class="gal-item"><img src="mission_long.webp" alt="Mission"></div>
-         <div class="gal-item"><img src="mission_on_bed.webp" alt="Mission"></div>
-         <div class="gal-item"><img src="mission_museum.webp" alt="Mission"></div>
-         <div class="gal-item"><img src="mission_after_bath.webp" alt="Mission" style="object-position: left;"></div>
+         <div class="gal-item"><img loading="lazy" src="mission_with_dogs.webp" alt="Mission" style="object-position: left;"></div>
+         <div class="gal-item"><img loading="lazy" src="mission_long.webp" alt="Mission"></div>
+         <div class="gal-item"><img loading="lazy" src="mission_on_bed.webp" alt="Mission"></div>
+         <div class="gal-item"><img loading="lazy" src="mission_museum.webp" alt="Mission"></div>
+         <div class="gal-item"><img loading="lazy" src="mission_after_bath.webp" alt="Mission" style="object-position: left;"></div>
        </div>
     </div>
   </section>
