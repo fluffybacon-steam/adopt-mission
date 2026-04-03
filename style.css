@@ -68,6 +68,7 @@
     .btn-adopt:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(0,0,0,0.25); }
     .hero-right { position:relative; background:var(--white-eye); height:0px;min-height: 100%; }
     .hero-img { width:calc(100% + 50px); height:calc(100% + 50px); object-fit:cover; display:block; animation: revealMission 1s ease-out forwards; }
+    .hero-img img{ width:100%; height:100%; object-fit:cover; display:block; }
     .hero-badge { position:absolute; bottom:0; right:0; margin:1em; background:var(--blush); color:white; font-family:'Fraunces',serif; font-style:italic; font-size:1.5rem; padding:1em 1.4em; border-radius:1rem; box-shadow:0 6px 24px rgba(0,0,0,0.15); transform:rotate(3deg); line-height:1.6; }
 
     /* SECTIONS */
@@ -85,8 +86,9 @@
     .trait { background:var(--white-eye); border:1.5px solid #ddd2c4; border-radius:100px; padding:0.4rem 1rem; font-size:0.88rem; font-weight:500; color:var(--bark); }
     .photo-strip { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:auto auto; gap:0.8rem; }
     .photo-strip img { width:100%; border-radius:1rem; object-fit:cover; display:block; background:#c8a882; }
-    .photo-strip img:first-child { grid-column:span 2; height:300px; }
-    .photo-strip img:not(:first-child) { height:260px; }
+    .photo-strip picture:first-child { grid-column:span 2; height:300px; }
+    .photo-strip picture:not(:first-child) { height:260px; }
+    .photo-strip img { width:100%; height:100%; object-fit: cover; }
 
     /* GOALS */
     .goals { background: var(--bark); }
