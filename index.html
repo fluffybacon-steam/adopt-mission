@@ -46,7 +46,15 @@ refresh();gsap.to(track,{scrollTrigger:{scrub:2,anticipatePin:1,trigger:galleryW
       overflow: hidden;
       z-index: 9999;
     ">
-    
+
+    <button onclick="document.getElementById('overlay').style.display='none'" style="
+      position: fixed;
+      top: 1em;
+      left: 1em;
+      background: transparent;
+      border: none;
+      font-size: 2rem;
+  ">X</button>
       <!-- POPUP CARD -->
       <div style="
         background: #fff;
@@ -291,7 +299,8 @@ refresh();gsap.to(track,{scrollTrigger:{scrub:2,anticipatePin:1,trigger:galleryW
 
     <section class="section cta" id="contact">
       <div class="container">
-        <h2 class="cta-title reveal">Ready to give Mission<br><em>his forever home?</em></h2>
+        <h2 class="cta-title reveal" style="text-decoration: line-through;">Ready to give Mission<br><em>his forever home?</em></h2>
+        <h2 class="cta-title reveal">Too late! Feel free to leave a message though!</em></h2>
         <p class="cta-body reveal" style="transition-delay:0.1s">Reach out to us below. 🐾</p>
         <form action="https://submit-form.com/ocjFHjEg6" style="
           max-width: 520px;
