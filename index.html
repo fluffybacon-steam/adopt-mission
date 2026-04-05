@@ -13,7 +13,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollSmoother.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/Draggable.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/Draggable.min.js"></script> -->
   <!-- <script src="script.js"></script> -->
   <script>document.addEventListener("DOMContentLoaded",()=>{gsap.registerPlugin(ScrollTrigger);gsap.registerPlugin(ScrollSmoother)
 gsap.registerPlugin(Draggable);ScrollSmoother.create({smooth:1,effects:!0});if(window.innerWidth>768){const GRAVITY=0.42;const BOUNCE=0.30;const FRICTION=0.975;const FLOOR_FRIC=0.85;const ROT_FRIC=0.90;const REST_SPEED=0.08;const section=document.querySelector('#bones');const photoStrip=section&&section.querySelector('.photo-strip');if(!section||!photoStrip||typeof Draggable==='undefined')return;const W=92,H=36;const el=document.createElement('div');el.className='easter-bone';el.style.cssText=`width:${W}px;height:${H}px;`;section.appendChild(el);let strip={left:0,top:0,right:0,bottom:0};function cacheRects(){const sr=section.getBoundingClientRect();const r=photoStrip.getBoundingClientRect();strip={left:r.left-sr.left,top:r.top-sr.top,right:r.right-sr.left,bottom:r.bottom-sr.top,}}
@@ -34,262 +34,378 @@ refresh();gsap.to(track,{scrollTrigger:{scrub:2,anticipatePin:1,trigger:galleryW
 <body>
 <div id="smooth-wrapper">
 		<div id="smooth-content">
-  <section class="hero">
-    <div class="hero-left">
-      <h1 class="hero-name ">Meet<br> 
-      <div class="shiny-text-wrapper">
-        <span class="shiny-text" id="shinyTag">Mission</span>
-      </div></h1>
-      <p class="hero-desc">This 62 pounds mass of unconditional love is in need of a new home!</p>
-      <div class="hero-stats">
-        <div class="stat"><div class="stat-num">$0</div><div class="stat-label">Adoption Fee</div></div>
-        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Good Boy</div></div>
-      </div>
-      <a href="#contact" class="btn-adopt">🐾 Adopt Mission</a>
-    </div>
-    <div class="hero-right">
-      <picture class="hero-img">
-        <source srcset="mobile/mission_hero_image.webp" media="(max-width: 860px)">
-        <img src="mission_hero_image.webp" alt="Mission the dog" fetchpriority="high"/>
-      </picture>
-      <div class="hero-badge">Neutered ✓<br>Vaccinated ✓<br>Wellness Check ✓</div>
-    </div>
-  </section>
-
-  <section class="section about" id="bones" style="position: relative; overflow: hidden;">
-  <div class="container">
-    <div class="about-grid">
-      <div class="reveal">
-        <h2 class="section-title">Mission's Story</h2>
-        <p class="about-body">Mission was discovered during our tour of the Spanish Missions of San Antonio. He was found in poor health, crumpled in a ditch unmoving. We got him to animal control for treatment, and he has since made a full recovery. However, due to limited space at the shelter, we were forced to adopt him to avoid capacity euthansia.</p>
-        <p class="about-body">Mission is a friendly pup, estimated to be 2-3 years old by the vet. He appears to be house-trained (no accidents yets) and can walk on a leash without pulling. He loves to cuddle and to play tug. He is very soft and submissive around our own two dogs and cat. He is bit reactive to cars and tall people, but we are currently working on that.</p>
-        <p class="about-body">Right now he's sharing a camper with us, and while he loves his crew, he's ready for a space to truly call his own.</p>
-      </div>
-      <div class="photo-strip reveal" style="transition-delay:0.15s">
-        <picture>
-        <source srcset="mobile/mission_fourth_photo.webp" media="(max-width: 860px)">
-        <img src="mission_fourth_photo.webp" alt="Mission the dog in prison" style="object-position: center">
-      </picture>
-      <picture>
-        <source srcset="mobile/mission_third_photo.webp" media="(max-width: 860px)">
-        <img src="mission_third_photo.webp" alt="Mission the dog post adoption" style="object-position: center">
-      </picture>
-      <picture>
-        <source srcset="mobile/mission_tug.webp" media="(max-width: 860px)">
-        <img src="mission_tug.webp" alt="Mission the dog" style="object-position: top left">
-      </picture>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <section class="section includes">
-    <div class="container">
-      <div class="reveal">
-        <h2 class="section-title">Adoption <em>includes everything.</em></h2>
-      </div>
-      <div class="includes-grid">
-        <div class="include-item reveal" style="transition-delay:0.1s">
-          <div class="include-icon">💸</div>
-          <div>
-            <div class="include-title">Free</div>
-            <p class="include-text">0% APR. No Money Down... or ever. This priceless pup comes with no price tag.</p>
-          </div>
-        </div>
-        <div class="include-item reveal" style="transition-delay:0.15s">
-          <div class="include-icon">🏠</div>
-          <div>
-            <div class="include-title">42" Crate with Cover ($150 Value)</div>
-            <p class="include-text" style="text-wrap-style: pretty;">Mission comes with a 42" metal crate with cover. He really loves it!</p>
-          </div>
-        </div>
-        <div class="include-item reveal" style="transition-delay:0.2s">
-          <div class="include-icon">🩺</div>
-          <div>
-            <div class="include-title">Medical Records</div>
-            <p class="include-text">Mission has had his full wellness exam. We'll provide proof of all vaccinations, flea &amp; tick prevention, and heartworm negative.</p>
-          </div>
-        </div>
-        <div class="include-item reveal" style="transition-delay:0.25s">
-          <div class="include-icon">✂️</div>
-          <div>
-            <div class="include-title">Already Neutered</div>
-            <p class="include-text">No puppies in Mission's future!</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section gallery">
-    <div class="container">
-      <div class="reveal">
-        <h2 class="section-title">Gallery of <em>Mission</em></h2>
-      </div>
-    </div>
-    <div class="gallery-wrapper">
-      <div id="gallery-track" >
-         <div class="gal-item"><picture>
-        <source srcset="mobile/mission_square.webp" media="(max-width: 860px)">
-        <img src="mission_square.webp" alt="Mission"></div>
-         <div class="gal-item"><picture>
-        <source srcset="mobile/mission_tall.webp" media="(max-width: 860px)">
-        <img src="mission_tall.webp" alt="Mission" style="object-position: bottom left;"></div>
-         <div class="gal-item"><picture>
-        <source srcset="mobile/mission_walk.webp" media="(max-width: 860px)">
-        <img src="mission_walk.webp" alt="Mission"></div>
-         <div class="gal-item"><picture>
-        <source srcset="mobile/mission_ready_to_play.webp" media="(max-width: 860px)">
-        <img src="mission_ready_to_play.webp" alt="Mission" style="object-position: top;"></div>
-         <div class="gal-item"><picture>
-        <source srcset="mobile/mission_relaxing.webp" media="(max-width: 860px)">
-        <img src="mission_relaxing.webp" alt="Mission"></div>
-         <div class="gal-item"><video preload="auto" fetchpriority="low" muted=1 autoplay=1 loop=1 width="100%"><source src="mission_attempting_to_climb.webm" type="video/webm"></video></div>
-         <div class="gal-item"><picture>
-        <source srcset="mobile/mission_with_dogs.webp" media="(max-width: 860px)">
-        <img src="mission_with_dogs.webp" alt="Mission" style="object-position: left;"></div>
-         <div class="gal-item"><picture>
-        <source srcset="mobile/mission_long.webp" media="(max-width: 860px)">
-        <img src="mission_long.webp" alt="Mission"></div>
-         <div class="gal-item"><picture>
-        <source srcset="mobile/mission_on_bed.webp" media="(max-width: 860px)">
-        <img src="mission_on_bed.webp" alt="Mission"></div>
-         <div class="gal-item"><picture>
-        <source srcset="mobile/mission_museum.webp" media="(max-width: 860px)">
-        <img src="mission_museum.webp" alt="Mission"></div>
-         <div class="gal-item"><picture>
-        <source srcset="mobile/mission_after_bath.webp" media="(max-width: 860px)">
-        <img src="mission_after_bath.webp" alt="Mission" style="object-position: left;"></div>
-       </div>
-    </div>
-  </section>
-
-  <section class=" transport">
-    <div class="container">
-      <div class="transport-text">
-        <h2 class="section-title" style="color:#f5ede0">We are mobile!</h2>
-        Currently traveling through the Southwest, heading back to Pennsylvania. No matter where you're located, reach out — we may be able to arrange transportation for the right family!
-      </div>
-    </div>
-  </section>
-
-  <section class="section cta" id="contact">
-    <div class="container">
-      <h2 class="cta-title reveal">Ready to give Mission<br><em>his forever home?</em></h2>
-      <p class="cta-body reveal" style="transition-delay:0.1s">Reach out to us below. 🐾</p>
-      <form action="https://submit-form.com/ocjFHjEg6" style="
-        max-width: 520px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        gap: 0.9rem;
+    <div id="overlay" class="reveal" style="
+      position: fixed;
+      inset: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #fde8f0 0%, #fef3e2 50%, #e8f5e9 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      overflow: hidden;
+      z-index: 9999;
+    ">
+    
+      <!-- POPUP CARD -->
+      <div style="
+        background: #fff;
+        border-radius: 24px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.08);
+        max-width: 420px;
+        width: 100%;
+        overflow: hidden;
+        animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards;
+        position: relative;
+        z-index: 10;
       ">
-        <label for="name" style="
-          font-size: 0.75rem;
-          font-weight: 600;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: #5a3b1e;
-          text-align: left;
-          margin-bottom: -0.4rem;
-        ">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your name" required style="
-          font-family: 'DM Sans', sans-serif;
-          font-size: 1rem;
-          padding: 0.85rem 1.2rem;
-          border-radius: 0.75rem;
-          border: 2px solid rgba(122,79,46,0.2);
-          background: rgba(255,255,255,0.7);
-          color: #2c1a0e;
-          outline: none;
-          transition: border-color 0.2s, box-shadow 0.2s;
-        " onfocus="this.style.borderColor='#7a4f2e'; this.style.boxShadow='0 0 0 3px rgba(122,79,46,0.15)'"
-           onblur="this.style.borderColor='rgba(122,79,46,0.2)'; this.style.boxShadow='none'"/>
+    
+        <div style="width:100%;height:350px;overflow:hidden;">
+          <img src="mission_accomplished.webp" alt="Mission the dog with a party hat and confetti" style="width:100%;height:100%;display:block;object-fit:cover;object-position:center;">
+        </div>
 
-        <label for="email" style="
-          font-size: 0.75rem;
-          font-weight: 600;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: #5a3b1e;
-          text-align: left;
-          margin-bottom: -0.4rem;
-        ">Email</label>
-        <input type="email" id="email" name="email" placeholder="your@email.com" required style="
-          font-family: 'DM Sans', sans-serif;
-          font-size: 1rem;
-          padding: 0.85rem 1.2rem;
-          border-radius: 0.75rem;
-          border: 2px solid rgba(122,79,46,0.2);
-          background: rgba(255,255,255,0.7);
-          color: #2c1a0e;
-          outline: none;
-          transition: border-color 0.2s, box-shadow 0.2s;
-        " onfocus="this.style.borderColor='#7a4f2e'; this.style.boxShadow='0 0 0 3px rgba(122,79,46,0.15)'"
-           onblur="this.style.borderColor='rgba(122,79,46,0.2)'; this.style.boxShadow='none'"/>
+    
+        <!-- BODY -->
+        <div style="padding: 1.5rem 2rem 2rem; text-align: center; position: relative;">
+    
+          <!-- Headline -->
+          <h2 style="
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #2d2d2d;
+            line-height: 1.3;
+            margin-bottom: 0.75em;
+          ">Mission has been <span class="shiny-text">adopted!</span></h2>
+    
+          <!-- Subtext -->
+          <p style="
+            font-family: 'Lato', sans-serif;
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+          ">
+            It's an Easter Miracle <span class="bunny-emoji">🐰</span><br/><br/>
+            Mission has found his forever home! Special thanks to everyone that helped us along the way ❤️
+          </p>
 
-        <label for="message" style="
-          font-size: 0.75rem;
-          font-weight: 600;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: #5a3b1e;
-          text-align: left;
-          margin-bottom: -0.4rem;
-        ">Message</label>
-        <textarea id="message" name="message" placeholder="Tell us a little about yourself and your home..." required rows="5" style="
-          font-family: 'DM Sans', sans-serif;
-          font-size: 1rem;
-          padding: 0.85rem 1.2rem;
-          border-radius: 0.75rem;
-          border: 2px solid rgba(122,79,46,0.2);
-          background: rgba(255,255,255,0.7);
-          color: #2c1a0e;
-          outline: none;
-          resize: vertical;
-          transition: border-color 0.2s, box-shadow 0.2s;
-        " onfocus="this.style.borderColor='#7a4f2e'; this.style.boxShadow='0 0 0 3px rgba(122,79,46,0.15)'"
-           onblur="this.style.borderColor='rgba(122,79,46,0.2)'; this.style.boxShadow='none'"></textarea>
+</div>
+<!-- END BODY -->
 
-        <button type="submit" style="
-          font-family: 'DM Sans', sans-serif;
-          font-size: 1rem;
-          font-weight: 600;
-          padding: 1rem 2rem;
-          border-radius: 100px;
-          border: none;
-          background: #7a4f2e;
-          color: #f5ede0;
-          cursor: pointer;
-          margin-top: 0.4rem;
-          transition: transform 0.2s, box-shadow 0.2s;
-        " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'"
-           onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
-          🐾 Send Message
-        </button>
-      </form>
+</div>
+<!-- END POPUP CARD -->
+
+    <style>
+      @keyframes fall {
+        0%   { transform: translateY(-20px) rotate(0deg); opacity: 0.9; }
+        100% { transform: translateY(600px) rotate(360deg); opacity: 0; }
+      }
+      @keyframes popIn {
+        0%   { transform: scale(0.6); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+      @keyframes hop {
+        0%   { transform: translateY(0); }
+        100% { transform: translateY(-5px); }
+      }
+      .confetti-piece {
+        position: absolute;
+        animation: fall linear infinite;
+        opacity: 0.8;
+        pointer-events: none;
+      }
+      .bunny-emoji {
+        display: inline-block;
+        animation: hop 0.8s ease-in-out infinite alternate;
+      }
+    </style>
+
+    <script>
+      const colors = ['#f8a4c8','#f9c784','#b5ead7','#c7ceea','#ffdac1','#e2f0cb'];
+      const overlay = document.getElementById('overlay');
+      for (let i = 0; i < 100; i++) {
+        const c = document.createElement('div');
+        c.className = 'confetti-piece';
+        c.style.cssText = `
+          left: ${Math.random() * 100}%;
+          top: ${-Math.random() * 20}px;
+          background: ${colors[Math.floor(Math.random() * colors.length)]};
+          width: ${6 + Math.random() * 8}px;
+          height: ${6 + Math.random() * 8}px;
+          animation-duration: ${2.5 + Math.random() * 2.5}s;
+          animation-delay: ${Math.random() * 2.5}s;
+          border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
+        `;
+        overlay.appendChild(c);
+      }
+    </script>
+
+<div style="position:fixed;right:0px;bottom:0px;">This website will self-destruct in <span id="countdown">X</span> days.</div>
+          <script>
+            const target = new Date('2026-04-10T00:00:00');
+            const now = new Date();
+            const days = Math.ceil((target - now) / (1000 * 60 * 60 * 24));
+            document.getElementById('countdown').textContent = Math.max(days, 0);
+            </script>
+    </div>
+
+    <section class="hero">
+      <div class="hero-left">
+        <h1 class="hero-name ">Meet<br> 
+        <div class="shiny-text-wrapper">
+          <span class="shiny-text" id="shinyTag">Mission</span>
+        </div></h1>
+        <p class="hero-desc">This 62 pounds mass of unconditional love is in need of a new home!</p>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-num">$0</div><div class="stat-label">Adoption Fee</div></div>
+          <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Good Boy</div></div>
+        </div>
+        <a href="#contact" class="btn-adopt">🐾 Adopt Mission</a>
+      </div>
+      <div class="hero-right">
+        <picture class="hero-img">
+          <source srcset="mobile/mission_hero_image.webp" media="(max-width: 860px)">
+          <img src="mission_hero_image.webp" alt="Mission the dog" fetchpriority="high"/>
+        </picture>
+        <div class="hero-badge">Neutered ✓<br>Vaccinated ✓<br>Wellness Check ✓</div>
+      </div>
+    </section>
+
+    <section class="section about" id="bones" style="position: relative; overflow: hidden;">
+    <div class="container">
+      <div class="about-grid">
+        <div class="reveal">
+          <h2 class="section-title">Mission's Story</h2>
+          <p class="about-body">Mission was discovered during our tour of the Spanish Missions of San Antonio. He was found in poor health, crumpled in a ditch unmoving. We got him to animal control for treatment, and he has since made a full recovery. However, due to limited space at the shelter, we were forced to adopt him to avoid capacity euthansia.</p>
+          <p class="about-body">Mission is a friendly pup, estimated to be 2-3 years old by the vet. He appears to be house-trained (no accidents yets) and can walk on a leash without pulling. He loves to cuddle and to play tug. He is very soft and submissive around our own two dogs and cat. He is bit reactive to cars and tall people, but we are currently working on that.</p>
+          <p class="about-body">Right now he's sharing a camper with us, and while he loves his crew, he's ready for a space to truly call his own.</p>
+        </div>
+        <div class="photo-strip reveal" style="transition-delay:0.15s">
+          <picture>
+          <source srcset="mobile/mission_fourth_photo.webp" media="(max-width: 860px)">
+          <img src="mission_fourth_photo.webp" alt="Mission the dog in prison" style="object-position: center">
+        </picture>
+        <picture>
+          <source srcset="mobile/mission_third_photo.webp" media="(max-width: 860px)">
+          <img src="mission_third_photo.webp" alt="Mission the dog post adoption" style="object-position: center">
+        </picture>
+        <picture>
+          <source srcset="mobile/mission_tug.webp" media="(max-width: 860px)">
+          <img src="mission_tug.webp" alt="Mission the dog" style="object-position: top left">
+        </picture>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- <footer>
-    <div class="footer-name">Mission 🐾</div>
-    <div class="footer-sub">Looking for his forever home · Made with love by a friend</div>
-  </footer> -->
-  </div></div>
+    <section class="section includes">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="section-title">Adoption <em>includes everything.</em></h2>
+        </div>
+        <div class="includes-grid">
+          <div class="include-item reveal" style="transition-delay:0.1s">
+            <div class="include-icon">💸</div>
+            <div>
+              <div class="include-title">Free</div>
+              <p class="include-text">0% APR. No Money Down... or ever. This priceless pup comes with no price tag.</p>
+            </div>
+          </div>
+          <div class="include-item reveal" style="transition-delay:0.15s">
+            <div class="include-icon">🏠</div>
+            <div>
+              <div class="include-title">42" Crate with Cover ($150 Value)</div>
+              <p class="include-text" style="text-wrap-style: pretty;">Mission comes with a 42" metal crate with cover. He really loves it!</p>
+            </div>
+          </div>
+          <div class="include-item reveal" style="transition-delay:0.2s">
+            <div class="include-icon">🩺</div>
+            <div>
+              <div class="include-title">Medical Records</div>
+              <p class="include-text">Mission has had his full wellness exam. We'll provide proof of all vaccinations, flea &amp; tick prevention, and heartworm negative.</p>
+            </div>
+          </div>
+          <div class="include-item reveal" style="transition-delay:0.25s">
+            <div class="include-icon">✂️</div>
+            <div>
+              <div class="include-title">Already Neutered</div>
+              <p class="include-text">No puppies in Mission's future!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <script>
-    const reveals = document.querySelectorAll('.reveal');
-    function checkReveal() {
-      reveals.forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight + 60) {
-          el.classList.add('visible');
-        }
-      });
-    }
-    checkReveal(); // run immediately
-    window.addEventListener('scroll', checkReveal, { passive: true });
-    window.addEventListener('resize', checkReveal, { passive: true });
-    // setTimeout(() => reveals.forEach(el => el.classList.add('visible')), 1000);
-  </script>
+    <section class="section gallery">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="section-title">Gallery of <em>Mission</em></h2>
+        </div>
+      </div>
+      <div class="gallery-wrapper">
+        <div id="gallery-track" >
+          <div class="gal-item"><picture>
+          <source srcset="mobile/mission_square.webp" media="(max-width: 860px)">
+          <img src="mission_square.webp" alt="Mission"></div>
+          <div class="gal-item"><picture>
+          <source srcset="mobile/mission_tall.webp" media="(max-width: 860px)">
+          <img src="mission_tall.webp" alt="Mission" style="object-position: bottom left;"></div>
+          <div class="gal-item"><picture>
+          <source srcset="mobile/mission_walk.webp" media="(max-width: 860px)">
+          <img src="mission_walk.webp" alt="Mission"></div>
+          <div class="gal-item"><picture>
+          <source srcset="mobile/mission_ready_to_play.webp" media="(max-width: 860px)">
+          <img src="mission_ready_to_play.webp" alt="Mission" style="object-position: top;"></div>
+          <div class="gal-item"><picture>
+          <source srcset="mobile/mission_relaxing.webp" media="(max-width: 860px)">
+          <img src="mission_relaxing.webp" alt="Mission"></div>
+          <div class="gal-item"><video preload="auto" fetchpriority="low" muted=1 autoplay=1 loop=1 width="100%"><source src="mission_attempting_to_climb.webm" type="video/webm"></video></div>
+          <div class="gal-item"><picture>
+          <source srcset="mobile/mission_with_dogs.webp" media="(max-width: 860px)">
+          <img src="mission_with_dogs.webp" alt="Mission" style="object-position: left;"></div>
+          <div class="gal-item"><picture>
+          <source srcset="mobile/mission_long.webp" media="(max-width: 860px)">
+          <img src="mission_long.webp" alt="Mission"></div>
+          <div class="gal-item"><picture>
+          <source srcset="mobile/mission_on_bed.webp" media="(max-width: 860px)">
+          <img src="mission_on_bed.webp" alt="Mission"></div>
+          <div class="gal-item"><picture>
+          <source srcset="mobile/mission_museum.webp" media="(max-width: 860px)">
+          <img src="mission_museum.webp" alt="Mission"></div>
+          <div class="gal-item"><picture>
+          <source srcset="mobile/mission_after_bath.webp" media="(max-width: 860px)">
+          <img src="mission_after_bath.webp" alt="Mission" style="object-position: left;"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class=" transport">
+      <div class="container">
+        <div class="transport-text">
+          <h2 class="section-title" style="color:#f5ede0">We are mobile!</h2>
+          Currently traveling through the Southwest, heading back to Pennsylvania. No matter where you're located, reach out — we may be able to arrange transportation for the right family!
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta" id="contact">
+      <div class="container">
+        <h2 class="cta-title reveal">Ready to give Mission<br><em>his forever home?</em></h2>
+        <p class="cta-body reveal" style="transition-delay:0.1s">Reach out to us below. 🐾</p>
+        <form action="https://submit-form.com/ocjFHjEg6" style="
+          max-width: 520px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          gap: 0.9rem;
+        ">
+          <label for="name" style="
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #5a3b1e;
+            text-align: left;
+            margin-bottom: -0.4rem;
+          ">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required style="
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            padding: 0.85rem 1.2rem;
+            border-radius: 0.75rem;
+            border: 2px solid rgba(122,79,46,0.2);
+            background: rgba(255,255,255,0.7);
+            color: #2c1a0e;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+          " onfocus="this.style.borderColor='#7a4f2e'; this.style.boxShadow='0 0 0 3px rgba(122,79,46,0.15)'"
+            onblur="this.style.borderColor='rgba(122,79,46,0.2)'; this.style.boxShadow='none'"/>
+
+          <label for="email" style="
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #5a3b1e;
+            text-align: left;
+            margin-bottom: -0.4rem;
+          ">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required style="
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            padding: 0.85rem 1.2rem;
+            border-radius: 0.75rem;
+            border: 2px solid rgba(122,79,46,0.2);
+            background: rgba(255,255,255,0.7);
+            color: #2c1a0e;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+          " onfocus="this.style.borderColor='#7a4f2e'; this.style.boxShadow='0 0 0 3px rgba(122,79,46,0.15)'"
+            onblur="this.style.borderColor='rgba(122,79,46,0.2)'; this.style.boxShadow='none'"/>
+
+          <label for="message" style="
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #5a3b1e;
+            text-align: left;
+            margin-bottom: -0.4rem;
+          ">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us a little about yourself and your home..." required rows="5" style="
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            padding: 0.85rem 1.2rem;
+            border-radius: 0.75rem;
+            border: 2px solid rgba(122,79,46,0.2);
+            background: rgba(255,255,255,0.7);
+            color: #2c1a0e;
+            outline: none;
+            resize: vertical;
+            transition: border-color 0.2s, box-shadow 0.2s;
+          " onfocus="this.style.borderColor='#7a4f2e'; this.style.boxShadow='0 0 0 3px rgba(122,79,46,0.15)'"
+            onblur="this.style.borderColor='rgba(122,79,46,0.2)'; this.style.boxShadow='none'"></textarea>
+
+          <button type="submit" style="
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            border: none;
+            background: #7a4f2e;
+            color: #f5ede0;
+            cursor: pointer;
+            margin-top: 0.4rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+          " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'"
+            onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
+            🐾 Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- <footer>
+      <div class="footer-name">Mission 🐾</div>
+      <div class="footer-sub">Looking for his forever home · Made with love by a friend</div>
+    </footer> -->
+    </div></div>
+
+    <script>
+      const reveals = document.querySelectorAll('.reveal');
+      function checkReveal() {
+        reveals.forEach(el => {
+          if (el.getBoundingClientRect().top < window.innerHeight + 60) {
+            el.classList.add('visible');
+          }
+        });
+      }
+      checkReveal(); // run immediately
+      window.addEventListener('scroll', checkReveal, { passive: true });
+      window.addEventListener('resize', checkReveal, { passive: true });
+      // setTimeout(() => reveals.forEach(el => el.classList.add('visible')), 1000);
+    </script>
 </body>
 </html>
